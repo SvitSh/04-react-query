@@ -1,0 +1,57 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.movieList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+}
+
+.movieItem {
+  text-align: center;
+  background: #000;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.poster {
+  width: 100%;
+  height: auto;
+  border-bottom: 2px solid #fff;
+}
+
+.titleText {
+  color: #fff;
+  padding: 0.5rem;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+  list-style: none;
+  gap: 0.5rem;
+}
+
+.pagination li {
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+
+.active {
+  background-color: #007bff;
+  color: white;
+  border-color: #007bff;
+}

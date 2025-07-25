@@ -1,0 +1,42 @@
+.movieList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  justify-items: center;
+}
+
+.movieItem {
+  background-color: #000;
+  color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  text-align: center;
+  width: 200px;
+}
+
+.poster {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  padding: 20px 0;
+  list-style: none;
+}
+
+.pagination li {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+
+.active {
+  background-color: #007bff;
+  color: white;
+  font-weight: bold;
+}

@@ -1,0 +1,22 @@
+.searchBarWrapper {
+  display: flex;
+  justify-content: flex-end;
+  margin: 20px 0;
+  gap: 8px;
+}
+
+.searchInput {
+  padding: 8px;
+  font-size: 16px;
+  width: 300px;
+}
+
+.searchButton {
+  padding: 8px 16px;
+  font-size: 16px;
+  background-color: #0a66c2;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
