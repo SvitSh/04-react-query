@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useSearchParams, useNavigate } from "react-router-dom";
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, keepPreviousData } from "@tanstack/react-query";
 import SearchBar from "../SearchBar/SearchBar";
 import MovieList from "../MovieList/MovieList";
 import { searchMovies } from "../../api/movies";
@@ -18,13 +18,14 @@ export default function App() {
     queryKey: ["movies", query, page],
     queryFn: () => searchMovies(query, page),
     enabled: !!query,
-    keepPreviousData: true,
+    placeholderData: keepPreviousData,
   });
 
   const totalPages = data?.total_pages ?? 0;
 
+  // ✨ функція для обробки пошуку
   const handleSearch = (searchQuery: string) => {
-    setPage(1);
+    setPage(1); // при новому пошуку — повертаємось на 1 сторінку
     navigate(`/?query=${encodeURIComponent(searchQuery)}`);
   };
 
