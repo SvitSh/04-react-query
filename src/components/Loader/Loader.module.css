@@ -1,0 +1,7 @@
+/* src/components/Loader/Loader.module.css */
+.loader {
+  font-size: 18px;
+  color: #0a66c2;
+  text-align: center;
+  margin: 20px 0;
+}

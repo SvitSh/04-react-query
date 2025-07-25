@@ -1,0 +1,16 @@
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+}
+
+.card {
+  width: 150px;
+  text-align: center;
+}
+
+.poster {
+  width: 100%;
+  border-radius: 8px;
+}

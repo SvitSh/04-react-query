@@ -1,5 +1,4 @@
 import { useState } from "react";
-
 import { useSearchParams, useNavigate } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import SearchBar from "../SearchBar/SearchBar";
@@ -19,6 +18,7 @@ export default function App() {
     queryKey: ["movies", query, page],
     queryFn: () => searchMovies(query, page),
     enabled: !!query,
+    keepPreviousData: true,
   });
 
   const totalPages = data?.total_pages ?? 0;
@@ -33,7 +33,7 @@ export default function App() {
       <SearchBar defaultQuery={query} onSubmit={handleSearch} />
 
       {isLoading && <p>Loading...</p>}
-      {isError && <p className={css.error}>{(error as Error).message}</p>}
+      {isError && <p>{(error as Error).message}</p>}
       {data && <MovieList movies={data.results} />}
 
       {totalPages > 1 && (

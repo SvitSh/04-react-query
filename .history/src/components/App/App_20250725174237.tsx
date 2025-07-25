@@ -1,5 +1,4 @@
-import { useState } from "react";
-
+import React, { useState } from "react";
 import { useSearchParams, useNavigate } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import SearchBar from "../SearchBar/SearchBar";
@@ -19,6 +18,7 @@ export default function App() {
     queryKey: ["movies", query, page],
     queryFn: () => searchMovies(query, page),
     enabled: !!query,
+    // Убираем placeholderData, т.к. keepPreviousData больше не экспортируется
   });
 
   const totalPages = data?.total_pages ?? 0;
