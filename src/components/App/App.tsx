@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { Toaster, toast } from "react-hot-toast";
 import ReactPaginate from "react-paginate";
@@ -27,17 +27,20 @@ const App = () => {
     queryFn: () => fetchMovies(searchQuery, page),
     enabled: searchQuery.trim().length > 0,
     refetchOnWindowFocus: false,
+    placeholderData: (prevData) => prevData,
   });
 
   const handleSearch = (query: string) => {
     setSelectedMovie(null);
     setSearchQuery(query);
-    setPage(1); // 🟡 сбрасываем на первую страницу при новом поиске
+    setPage(1);
   };
 
-  if (isSuccess && data.results.length === 0) {
-    toast.error("No movies found for your request.");
-  }
+  useEffect(() => {
+    if (isSuccess && data.results.length === 0) {
+      toast.error("No movies found for your request.");
+    }
+  }, [isSuccess, data]);
 
   return (
     <div className={styles.app}>
