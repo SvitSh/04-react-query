@@ -1,12 +1,13 @@
-import React from "react";
-import css from "./ErrorMessage.module.css";
+import type { ReactNode } from "react";
+
+import styles from "./ErrorMessage.module.css";
 
 interface ErrorMessageProps {
-  message: string;
+  children: ReactNode;
 }
 
-const ErrorMessage: React.FC<ErrorMessageProps> = ({ message }) => (
-  <div className={css.error}>{message}</div>
-);
+const ErrorMessage = ({ children }: ErrorMessageProps) => {
+  return <p className={styles.error}>{children}</p>;
+};
 
 export default ErrorMessage;
